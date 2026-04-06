@@ -14,8 +14,8 @@ def extract_compress_metrics(filepath):
         cr_match = re.search(r'Global Compression Ratio \(CR\)\s*:\s*([0-9.]+)', content)
         if cr_match:
             cr = float(cr_match.group(1))
-        # Search for Global Throughput (Speed)
-        thr_match = re.search(r'Global Throughput \(Speed\)\s*:\s*([0-9.]+)\s*GB/s', content)
+        # Search for Global Throughput (supports "Speed" or "Speed-Adj")
+        thr_match = re.search(r'Global Throughput \(Speed(?:-Adj)?\)\s*:\s*([0-9.]+)\s*GB/s', content)
         if thr_match:
             throughput = float(thr_match.group(1))
     except Exception as e:
