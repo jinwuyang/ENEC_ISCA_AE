@@ -4,7 +4,6 @@
 echo "Running download_data.sh..."
 bash download_data.sh
 
-pip install transformers
 # 2. Run Python splitting/utility script
 echo "Running python/utils.py..."
 python3 python/utils.py
