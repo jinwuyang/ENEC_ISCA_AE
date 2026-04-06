@@ -6,8 +6,11 @@ echo "Starting full process: data compression, verification, and analysis..."
 
 # Activate environment
 source /root/miniconda3/etc/profile.d/conda.sh
-conda activate hans
-source /data/wja/ascend/ascend-toolkit/set_env.sh
+conda activate enec
+# Non-root installation: 
+source ${HOME}/Ascend/ascend-toolkit/set_env.sh
+# Root Installation:
+# source /usr/local/Ascend/ascend-toolkit/set_env.sh
 
 export TORCH_NPU_DISABLED_WARNING=1
 export TORCHDYNAMO_DISABLE=1
