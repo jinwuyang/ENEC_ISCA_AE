@@ -4,11 +4,8 @@
 # and counts errors even if one comparison fails.
 echo "Starting full process: data compression, verification, and analysis..."
 
-# Activate environment
-source /root/miniconda3/etc/profile.d/conda.sh
-conda activate enec
 # Non-root installation: 
-source ${HOME}/Ascend/ascend-toolkit/set_env.sh
+# source ${HOME}/Ascend/ascend-toolkit/set_env.sh
 # Root Installation:
 # source /usr/local/Ascend/ascend-toolkit/set_env.sh
 
@@ -17,6 +14,10 @@ export TORCHDYNAMO_DISABLE=1
 
 # 0. Search Hyperparameters
 python python/param_search_enec.py
+
+# Activate environment
+source /root/miniconda3/etc/profile.d/conda.sh
+conda activate enec
 
 # 1. Execute Model Compression
 echo "Step 1/5: Compressing models..."
