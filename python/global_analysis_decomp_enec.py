@@ -159,11 +159,14 @@ def main():
             )
 
             if success and decomp_throughput > 0:
-                compute_inference_latency(
-                    model_name, dtype, decomp_throughput, total_output_size_gb,
-                    BASELINE[model_name], TIME_PER_LAYER[model_name], NUM_OF_LAYER[model_name],
-                    CAL_TIME[model_name]
-                )
+                if model_name in BASELINE:
+                    compute_inference_latency(
+                        model_name, dtype, decomp_throughput, total_output_size_gb,
+                        BASELINE[model_name], TIME_PER_LAYER[model_name], NUM_OF_LAYER[model_name],
+                        CAL_TIME[model_name]
+                    )
+                else:
+                    print(f"Skipping inference latency for {model_name} (no baseline defined).")
             else:
                 print(f"Error: Could not calculate valid throughput for {model_name}")
 
