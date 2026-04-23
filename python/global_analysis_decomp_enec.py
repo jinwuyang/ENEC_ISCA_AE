@@ -143,8 +143,8 @@ def main():
             if not os.path.isdir(model_path):
                 continue
 
-            if model_name not in BASELINE:
-                continue
+            # if model_name not in BASELINE:
+            #     continue
 
             csv_file = os.path.join(model_path, f"{model_name}_decompress.csv")
             if not os.path.exists(csv_file):
